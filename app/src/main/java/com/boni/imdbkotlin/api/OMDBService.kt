@@ -12,7 +12,7 @@ import retrofit2.http.Query
 class OMDBService {
     companion object {
         val baseUrl: String = "http://www.omdbapi.com"
-        val apikey: String = "4a8dd45f"
+        val apikey: String = "get_your_key_@_omdbapi.com"
     }
 
     fun getOMDBService(): OMDBAPI {
