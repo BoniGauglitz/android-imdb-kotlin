@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     fun getMoviesByTitle() {
 
         val omdbService = OMDBService().getOMDBService()
-        omdbService.getMoviesByTitle(Title = "Matrix", api_key = omdbService.apikey).enqueue(object : Callback<List<Movie>> {
+        omdbService.getMoviesByTitle(Title = "Matrix", api_key = OMDBService.apikey).enqueue(object : Callback<List<Movie>> {
             override fun onResponse(p0: Call<List<Movie>>?, response: Response<List<Movie>>?) {
                 val response = response?.body()
             }

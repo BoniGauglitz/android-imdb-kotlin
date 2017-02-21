@@ -1,7 +1,5 @@
 package com.boni.imdbkotlin.api
 
-import android.content.Context
-import com.boni.imdbkotlin.R
 import com.boni.imdbkotlin.models.Movie
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -11,9 +9,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-class OMDBService constructor(context: Context) {
-    val baseUrl: String = context.getString(R.string.omdbapi_url)
-    val apikey: String = context.getString(R.string.omdbapi_key)
+class OMDBService {
+    companion object {
+        val baseUrl: String = "http://www.omdbapi.com"
+        val apikey: String = "4a8dd45f"
+    }
 
     fun getOMDBService(): OMDBAPI {
         val interceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
