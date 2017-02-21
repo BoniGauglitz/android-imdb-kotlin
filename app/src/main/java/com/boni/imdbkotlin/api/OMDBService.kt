@@ -10,10 +10,6 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 class OMDBService {
-    companion object {
-        val baseUrl: String = "http://www.omdbapi.com"
-        val apikey: String = "get_your_key_@_omdbapi.com"
-    }
 
     fun getOMDBService(): OMDBAPI {
         val interceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
@@ -21,7 +17,7 @@ class OMDBService {
 
         val retrofit: Retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl(baseUrl)
+                .baseUrl(OMDBContants.baseUrl)
                 .client(client)
                 .build()
 
