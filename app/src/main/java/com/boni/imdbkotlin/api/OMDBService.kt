@@ -1,6 +1,7 @@
 package com.boni.imdbkotlin.api
 
 import com.boni.imdbkotlin.models.Movie
+import com.boni.imdbkotlin.models.Search
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -8,6 +9,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
+import java.util.*
 
 class OMDBService {
 
@@ -27,5 +29,9 @@ class OMDBService {
 
 interface OMDBAPI {
     @GET("/")
-    fun getMoviesByTitle(@Query("t") Title: String, @Query("api_key") api_key: String): Call<List<Movie>>
+    fun getMovieByTitle(@Query("t") title: String, @Query("api_key") api_key: String): Call<Movie>
+
+    @GET("/")
+    fun getMoviesByWord(@Query("s") word: String, @Query("api_key") api_key: String): Call<Search>
+
 }
